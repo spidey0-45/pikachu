@@ -61,13 +61,15 @@ body {
   background: var(--bg-2);
   color: var(--text);
   font-family: var(--jp);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   -webkit-font-smoothing: antialiased;
 }
 
 /* ── the one section ───────────────────────────────────────────── */
 .stage {
   position: relative;
+  min-height: 100svh;
   height: 100svh;
   width: 100%;
   overflow: hidden;
@@ -272,9 +274,45 @@ body {
 }
 .stage__hint--tap { color: var(--hint-key); }
 
-@media (max-width: 720px) {
-  .stage__foot { justify-content: center; text-align: center; }
-  .stage__en::before { -webkit-text-stroke-width: 6px; }
+@media (max-width: 768px) {
+
+  .stage__head{
+    padding:20px 15px 0;
+  }
+
+  .stage__jp{
+    font-size:22px;
+  }
+
+  .stage__en{
+    font-size:60px;
+    -webkit-text-stroke:6px var(--bolt);
+  }
+
+  .stage__en::before{
+    -webkit-text-stroke-width:3px;
+  }
+
+  .stage__kanji{
+    font-size:140px;
+    opacity:.15;
+  }
+
+  .stage__foot{
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    text-align:center;
+    padding:20px;
+  }
+
+  .stage__theme{
+    width:36px;
+    height:36px;
+    top:12px;
+    right:12px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

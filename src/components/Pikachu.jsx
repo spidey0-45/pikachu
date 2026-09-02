@@ -118,8 +118,17 @@ export default function Pikachu({ onReact }) {
       if (!meta) return;
 
       const [CX, CY, CW, CH] = meta.char.crop;
-      const target = Math.min(h * 0.78, 620);
-      const s = target / CH;                       // source px -> screen px
+      let target;
+
+      if (w <= 480) {
+        target = Math.min(h * 0.48, 280); // small phones
+      } else if (w <= 768) {
+        target = Math.min(h * 0.55, 340); // tablets & large phones
+      } else {
+        target = Math.min(h * 0.78, 620); // desktop
+      }
+
+      const s = target / CH;                      // source px -> screen px
       const cx = w / 2 + ox.v;
       const cy = h / 2 + oy.v + Math.sin(bob) * 5;
 

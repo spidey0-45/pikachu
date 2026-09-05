@@ -93,6 +93,20 @@ npm run build
 
 ---
 
+## Behaviour
+
+* **Look direction follows the cursor's position**: left half - looks left, right half - looks
+  right, middle band - faces front. A 0.20/0.14 hysteresis band plus a 150 ms dwell means
+  sweeping from one side to the other does not flash a turn while crossing the centre.
+* **Turns are covered by a blink**, the same cheat the source animation uses, followed by an
+  80 ms cross-dissolve. He also blinks on his own every few seconds while facing front.
+* **The body stays centred** - at most 11 px of spring-damped lean toward the cursor.
+* **Click him** and he giggles while full-screen yellow lightning cracks across the stage,
+  regrown with fresh jitter every 55 ms so it crackles rather than sitting still.
+* `prefers-reduced-motion` renders one static frame, skips the rain and suppresses the thunder.
+
+---
+
 ## 🎯 Learning Outcomes
 
 This project helped me explore:
